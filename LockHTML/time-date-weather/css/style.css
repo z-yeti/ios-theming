@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  background-image: url('../images/background.jpeg');
+  background-size: cover;
+}
+
+@font-face {
+  font-family: 'futura-pt-light';
+  src: url('../fonts/FuturaPTLight.otf');
+}
+@font-face {
+  font-family: 'futura-pt-book';
+  src: url('../fonts/FuturaPTBook.otf');
+}
+@font-face {
+  font-family: 'futura-pt-medium';
+  src: url('../fonts/FuturaPTMedium.otf');
+}
+
+#time,
+#date,
+#weather {
+  font-family: 'futura-pt-light';
+  color: #dbdfe1;
+}
+
+#time,
+#date {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+#time {
+  left: 0;
+}
+
+#date {
+  right: 0;
+}
+
+#charge {
+  display: none;
+  position: absolute;
+  background-image: url('../images/charge.jpg');
+  width: 69px;
+  height: 431px;
+  background-repeat-x: no-repeat;
+  background-repeat-y: repeat;
+  background-size: contain;
+  left: 155px;
+  top: -47px;
+  background-position-y: 0;
+}
+
+.animate {
+  display: block !important;
+  animation: slide 60s linear infinite;
+}
+@keyframes slide {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: -1692px;
+  }
+}
