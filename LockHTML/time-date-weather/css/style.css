@@ -57,26 +57,28 @@ body {
 #charge {
   display: none;
   position: absolute;
-  background-image: url('../images/charge.jpg');
-  width: 69px;
-  height: 431px;
-  background-repeat-x: no-repeat;
-  background-repeat-y: repeat;
-  background-size: contain;
-  left: 155px;
-  top: -47px;
-  background-position-y: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/charge.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  opacity: 0.25;
 }
 
 .animate {
   display: block !important;
-  animation: slide 60s linear infinite;
+  animation: pulse 2s ease 0s infinite;
 }
-@keyframes slide {
+@keyframes pulse {
   0% {
-    background-position-y: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
   }
   100% {
-    background-position-y: -1692px;
+    transform: scale(1);
   }
 }
