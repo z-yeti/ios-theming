@@ -16,11 +16,91 @@
     <div id="charge"></div>
     <div class="container">
       <div id="time">
-        <span id="hour">TWENTY THREE</span><span id="minute">.30</span>
+        <span id="hour">four</span>
+        <span id="minute">.20</span>
       </div>
       <div id="date">20.APR.2019</div>
+      <div id="weather">
+        <span id="temp">69&deg;</span>
+        <span id="dash">-</span>
+        <span id="condition">cloudy</span>
+      </div>
+      <div id="battery">
+        <span id="life">life</span>
+        <span id="dash">-</span>
+        <span id="level">69%</span>
+      </div>
+      <div id="artwork"></div>
+      <div id="title">song title</div>
+      <div id="artist">song artist</div>
+      <div id="controls">
+        <div id="play">
+          <img id="play-img" src="./images/play.svg" />
+        </div>
+        <div id="next">
+          <img id="next-img" src="./images/next.svg" />
+        </div>
+        <div id="prev">
+          <img id="prev-img" src="./images/prev.svg" />
+        </div>
+      </div>
     </div>
 
+    <script>
+      function mainUpdate(type) {
+        if (type == 'weather') {
+          document.getElementById('condition').innerHTML = weather.condition;
+          document.getElementById('temp').innerHTML =
+            weather.temperature + '&deg;';
+        } else if (type == 'battery') {
+          document.getElementById('level').innerHTML = batteryPercent + '%';
+          if (batteryCharging) {
+            document.getElementById('charge').className = 'animate';
+          } else {
+            battery.className = ' ';
+          }
+        } else if (type == 'music') {
+          if (isplaying) {
+            document.getElementById('title').innerHTML = title;
+            document.getElementById('artist').innerHTML = artist;
+            var milli = new Date().getMilliseconds(),
+              url = '/var/mobile/Documents/Artwork.jpg?' + milli;
+            document.getElementById('artwork').style.backgroundImage =
+              "url('" + url + "')";
+            document.getElementById('artwork').style.display = 'block';
+            document.getElementById('title').style.display = 'block';
+            document.getElementById('artist').style.display = 'block';
+            document.getElementById('prev').style.display = 'block';
+            document.getElementById('next').style.display = 'block';
+            document.getElementById('play-img').src = './images/pause.svg';
+          } else {
+            document.getElementById('artwork').style.backgroundImage =
+              "url('./images/albumart.jpg')";
+            document.getElementById('artwork').style.display = 'none';
+            document.getElementById('title').style.display = 'none';
+            document.getElementById('artist').style.display = 'none';
+            document.getElementById('prev').style.display = 'none';
+            document.getElementById('next').style.display = 'none';
+            document.getElementById('play-img').src = './images/play.svg';
+          }
+        }
+      }
+      document
+        .getElementById('prev')
+        .addEventListener('touchstart', function(el) {
+          window.location = 'xeninfo:prevtrack';
+        });
+      document
+        .getElementById('next')
+        .addEventListener('touchstart', function(el) {
+          window.location = 'xeninfo:nexttrack';
+        });
+      document
+        .getElementById('play')
+        .addEventListener('touchstart', function(el) {
+          window.location = 'xeninfo:playpause';
+        });
+    </script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

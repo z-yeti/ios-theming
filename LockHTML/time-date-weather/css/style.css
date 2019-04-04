@@ -30,21 +30,25 @@ body {
 
 #time,
 #date,
+#battery,
+#title,
+#artist,
+#artwork,
 #weather {
+  position: absolute;
   font-family: 'futura-pt-light';
   color: #dbdfe1;
+  text-transform: uppercase;
 }
 
 #time,
 #date {
-  position: absolute;
   bottom: 0;
   width: 50%;
   height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
 }
 #time {
   left: 0;
@@ -52,6 +56,20 @@ body {
 
 #date {
   right: 0;
+}
+
+#battery,
+#weather {
+  top: 5px;
+  font-size: 10px;
+  width: 80px;
+  text-align: center;
+}
+#weather {
+  left: 10px;
+}
+#battery {
+  right: 10px;
 }
 
 #charge {
@@ -71,14 +89,74 @@ body {
   display: block !important;
   animation: pulse 2s ease 0s infinite;
 }
+
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
+  25% {
+    transform: scale(1.125);
+  }
   50% {
-    transform: scale(1.15);
+    transform: scale(0.9);
   }
   100% {
     transform: scale(1);
   }
+}
+
+#artwork {
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  background-image: url('../images/albumart.jpg');
+  bottom: 215px;
+  left: 147px;
+  opacity: 0.75;
+  border-radius: 50px;
+  border: 5px solid rgba(61, 45, 61, 0.8);
+}
+#title,
+#artist {
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+#title {
+  bottom: 75px;
+}
+#artist {
+  bottom: 46px;
+}
+
+#play,
+#next,
+#prev {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+}
+#play {
+  bottom: 110px;
+  left: 177px;
+}
+#next,
+#prev {
+  bottom: 60px;
+}
+#prev {
+  left: 60px;
+}
+#next {
+  right: 60px;
+}
+#play-img,
+#next-img,
+#prev-img {
+  height: 25px;
+  width: 25px;
 }

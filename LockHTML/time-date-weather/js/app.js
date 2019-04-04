@@ -3,7 +3,6 @@ const dateContainer = document.getElementById('date');
 const hourContainer = document.getElementById('hour');
 const minuteContainer = document.getElementById('minute');
 const weatherContainer = document.getElementById('weather');
-const chargeContainer = document.getElementById('charge');
 
 const dayMonth = dateFns.format(new Date(), 'DD.MMM.YYYY');
 dateContainer.innerHTML = dayMonth;
@@ -79,16 +78,3 @@ hourContainer.innerHTML = inWords(hour);
 
 const minute = dateFns.format(new Date(), '.mm');
 minuteContainer.innerHTML = minute;
-
-function mainUpdate(type) {
-  if (type == 'battery') {
-    if (batteryCharging) {
-      chargeContainer.className = 'animate';
-    } else {
-      battery.className = ' ';
-    }
-  }
-  // if (type == 'weather') {
-  //   weatherDiv.innerHTML = weather.city + ' | ' + weather.temperature + '&deg;';
-  // }
-}
