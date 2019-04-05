@@ -1,13 +1,7 @@
-const timeContainer = document.getElementById('time');
-const dateContainer = document.getElementById('date');
-const hourContainer = document.getElementById('hour');
-const minuteContainer = document.getElementById('minute');
-const weatherContainer = document.getElementById('weather');
+var dayMonth = dateFns.format(new Date(), 'DD.MMM.YYYY');
+document.getElementById('date').innerHTML = dayMonth;
 
-const dayMonth = dateFns.format(new Date(), 'DD.MMM.YYYY');
-dateContainer.innerHTML = dayMonth;
-
-const hour = dateFns.format(new Date(), 'HH');
+var hour = dateFns.format(new Date(), 'HH');
 
 var a = [
   '',
@@ -74,7 +68,7 @@ function inWords(num) {
       : '';
   return str;
 }
-hourContainer.innerHTML = inWords(hour);
+document.getElementById('hour').innerHTML = inWords(hour);
 
-const minute = dateFns.format(new Date(), '.mm');
-minuteContainer.innerHTML = minute;
+var minute = dateFns.format(new Date(), '.mm');
+document.getElementById('minute').innerHTML = minute;

@@ -34,11 +34,14 @@ body {
 #title,
 #artist,
 #artwork,
-#weather {
+#weather,
+#dots,
+#track-time {
   position: absolute;
   font-family: 'futura-pt-light';
   color: #dbdfe1;
   text-transform: uppercase;
+  text-shadow: 1px 1px 1px #2d3234;
 }
 
 #time,
@@ -68,6 +71,9 @@ body {
 #weather {
   left: 10px;
 }
+#temp {
+  margin-right: -2px;
+}
 #battery {
   right: 10px;
 }
@@ -85,12 +91,12 @@ body {
   opacity: 0.25;
 }
 
-.animate {
+.animate-charging {
   display: block !important;
-  animation: pulse 2s ease 0s infinite;
+  animation: charging 2s ease 0s infinite;
 }
 
-@keyframes pulse {
+@keyframes charging {
   0% {
     transform: scale(1);
   }
@@ -139,6 +145,7 @@ body {
   position: absolute;
   height: 25px;
   width: 25px;
+  z-index: 10;
 }
 #play {
   bottom: 110px;
@@ -154,9 +161,44 @@ body {
 #next {
   right: 60px;
 }
-#play-img,
-#next-img,
-#prev-img {
-  height: 25px;
-  width: 25px;
+#dots {
+  bottom: 19px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#animated-dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 1px;
+  animation: dot 3s ease 0s infinite;
+}
+@keyframes dot {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+#animated-dot-2 {
+  width: 7px;
+  height: 7px;
+  margin: 0 1px;
+  animation: dot-2 3s ease 0s infinite;
+}
+@keyframes dot-2 {
+  0% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
 }
