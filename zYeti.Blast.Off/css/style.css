@@ -112,18 +112,21 @@ body {
 }
 
 #artwork {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: black;
   background-image: url('../images/albumart.jpg');
-  bottom: 215px;
-  left: 147px;
-  opacity: 0.75;
-  border-radius: 50px;
-  border: 5px solid rgba(61, 45, 61, 0.8);
+  bottom: 235px;
+  left: 140px;
+  -webkit-mask-image: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 75%
+  );
 }
 #title,
 #artist {

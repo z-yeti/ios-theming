@@ -15,13 +15,13 @@
   <body>
     <div class="container">
       <div id="time">
-        <span id="hour">four</span>
+        <span id="hour">04</span>
+        <span id="colon">:</span>
         <span id="minute">20</span>
       </div>
-      <div id="date">20.APR.2019</div>
+      <div id="date">04.20.2019</div>
       <div id="weather">
         <span id="temp">69&deg;</span>
-        <span id="condition">cloudy</span>
       </div>
       <div id="battery">
         <span id="level">69%</span>
@@ -41,12 +41,22 @@
           document.getElementById('condition').innerHTML = weather.condition;
           document.getElementById('temp').innerHTML =
             weather.temperature + '&deg;';
+          if (weather.temperature > 100) {
+            document.getElementById('temp').style.fontSize = '13px';
+          } else {
+            document.getElementById('temp').style.fontSize = '16px';
+          }
         } else if (type == 'battery') {
           document.getElementById('level').innerHTML = batteryPercent + '%';
           if (batteryCharging) {
             document.getElementById('charge').className = 'animate-charging';
           } else {
             document.getElementById('charge').className = ' ';
+          }
+          if (batteryPercent == 100) {
+            document.getElementById('charge').style.fontSize = '13px';
+          } else {
+            document.getElementById('charge').style.fontSize = '16px';
           }
         } else if (type == 'music') {
           if (!isplaying) {
