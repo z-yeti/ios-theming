@@ -34,11 +34,14 @@ body {
 #title,
 #artist,
 #artwork,
+#pause,
+#prev,
+#next,
 #weather {
   position: absolute;
   color: #dbdfe1;
   font-family: 'futura-pt-light';
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 #date,
@@ -84,8 +87,8 @@ body {
 }
 #title,
 #artist {
-  top: 260px;
-  width: 40%;
+  top: 220px;
+  width: 45%;
   text-align: center;
 }
 #title {
@@ -93,4 +96,20 @@ body {
 }
 #artist {
   right: 0;
+}
+#pause,
+#prev,
+#next {
+  width: 40px;
+  height: 40px;
+  bottom: 90px;
+}
+#pause {
+  left: 165px;
+}
+#next {
+  left: 227px;
+}
+#prev {
+  left: 110px;
 }

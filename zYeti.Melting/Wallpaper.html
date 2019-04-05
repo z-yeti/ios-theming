@@ -12,7 +12,7 @@
     <script src="./js/date_fns.min.js"></script>
   </head>
 
-  <body>
+  <body onload="init()">
     <div class="container">
       <div id="time">
         <span id="hour">04</span>
@@ -30,7 +30,7 @@
       <div id="title">song title</div>
       <div id="artist">song artist</div>
       <div id="controls">
-        <img id="play" src="./images/play.svg" />
+        <img id="pause" src="./images/pause.svg" />
         <img id="next" src="./images/next.svg" />
         <img id="prev" src="./images/prev.svg" />
       </div>
@@ -38,7 +38,6 @@
     <script>
       function mainUpdate(type) {
         if (type == 'weather') {
-          document.getElementById('condition').innerHTML = weather.condition;
           document.getElementById('temp').innerHTML =
             weather.temperature + '&deg;';
           if (weather.temperature > 100) {
@@ -67,7 +66,7 @@
             document.getElementById('artist').style.display = 'none';
             document.getElementById('prev').style.display = 'none';
             document.getElementById('next').style.display = 'none';
-            document.getElementById('play').src = './images/play.svg';
+            document.getElementById('pause').style.display = 'none';
           } else {
             document.getElementById('title').innerHTML = title;
             document.getElementById('artist').innerHTML = artist;
@@ -80,7 +79,7 @@
             document.getElementById('artist').style.display = 'block';
             document.getElementById('prev').style.display = 'block';
             document.getElementById('next').style.display = 'block';
-            document.getElementById('play').src = './images/pause.svg';
+            document.getElementById('pause').style.display = 'block';
           }
         }
       }
@@ -98,7 +97,7 @@
       }
 
       document
-        .getElementById('play')
+        .getElementById('pause')
         .addEventListener('touchstart', function(el) {
           playPauseMusic();
         });

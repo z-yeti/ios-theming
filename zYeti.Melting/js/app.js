@@ -1,11 +1,17 @@
-var dayMonth = dateFns.format(new Date(), 'MM.DD.YYYY');
-document.getElementById('date').innerHTML = dayMonth;
+function updateClock() {
+  var dayMonth = dateFns.format(new Date(), 'MM.DD.YY');
+  var hour = dateFns.format(new Date(), 'HH');
+  var minute = dateFns.format(new Date(), 'mm');
 
-var hour = dateFns.format(new Date(), 'HH');
-document.getElementById('hour').innerHTML = hour;
+  document.getElementById('date').innerHTML = dayMonth;
+  document.getElementById('hour').innerHTML = hour;
+  document.getElementById('minute').innerHTML = minute;
+}
 
-var minute = dateFns.format(new Date(), 'mm');
-document.getElementById('minute').innerHTML = minute;
+function init() {
+  updateClock();
+  setInterval('updateClock();', 1000);
+}
 
 // var a = [
 //   '',
