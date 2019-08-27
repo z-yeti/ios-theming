@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>zYeti NP_One</title>
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <link rel="stylesheet" href="https://use.typekit.net/coz3bqj.css" />
+    <script type="text/javascript" charset="utf-8" src="config.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="scripts/main.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="styles/styles.css"
+      type="text/css"
+      media="screen"
+    />
+  </head>
+
+  <body onload="init()">
+    <div id="container-0">
+      <span id="silence"></span>
+    </div>
+    <div id="container-1">
+      <div id="artwork"></div>
+      <div id="controls">
+        <div id="prev"></div>
+        <div id="play"></div>
+        <div id="next"></div>
+      </div>
+    </div>
+    <div id="container-2">
+      <span id="title">song title</span>
+      <span id="slash">/</span>
+      <span id="artist">song artist</span>
+      <div id="controls-2">
+        <div id="app-cta"></div>
+      </div>
+    </div>
+    <script>
+      function mainUpdate(type) {
+        if (type == 'music') {
+          if (!isplaying) {
+            document.getElementById('artwork').style.backgroundImage = 'unset';
+            document.getElementById('container-0').style.display = 'block';
+            document.getElementById('container-1').style.display = 'none';
+            document.getElementById('container-2').style.display = 'none';
+          } else {
+            document.getElementById('title').innerHTML = title;
+            document.getElementById('artist').innerHTML = artist;
+            var milli = new Date().getMilliseconds(),
+              url = '/var/mobile/Documents/Artwork.jpg?' + milli;
+            document.getElementById('artwork').style.backgroundImage =
+              "url('" + url + "')";
+            document.getElementById('container-0').style.display = 'none';
+            document.getElementById('container-1').style.display = 'block';
+            document.getElementById('container-2').style.display = 'block';
+          }
+        }
+      }
+
+      function playPauseMusic() {
+        window.location = 'xeninfo:playpause';
+      }
+
+      function nextMusic() {
+        window.location = 'xeninfo:nexttrack';
+      }
+
+      function prevMusic() {
+        window.location = 'xeninfo:prevtrack';
+      }
+
+      function openMusic() {
+        window.location = 'xeninfo:openapp:com.spotify.client';
+      }
+
+      document
+        .getElementById('play')
+        .addEventListener('touchstart', function(el) {
+          playPauseMusic();
+        });
+      document
+        .getElementById('next')
+        .addEventListener('touchstart', function(el) {
+          nextMusic();
+        });
+      document
+        .getElementById('prev')
+        .addEventListener('touchstart', function(el) {
+          prevMusic();
+        });
+      document
+        .getElementById('app-cta')
+        .addEventListener('touchstart', function(el) {
+          openMusic();
+        });
+      document
+        .getElementById('container-0')
+        .addEventListener('touchstart', function(el) {
+          openMusic();
+        });
+    </script>
+  </body>
+</html>
