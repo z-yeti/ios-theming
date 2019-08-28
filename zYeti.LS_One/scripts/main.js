@@ -1,3 +1,78 @@
+var days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
+var months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+var weatherDesc = [
+  'Tornado',
+  'Tropical Storm',
+  'Hurricane',
+  'Thunderstorm',
+  'Thunderstorm',
+  'Snow',
+  'Sleet',
+  'Sleet',
+  'Freezing Drizzle',
+  'Drizzle',
+  'Freezing Rain',
+  'Showers',
+  'Showers',
+  'Flurries',
+  'Snow',
+  'Snow',
+  'Snow',
+  'Hail',
+  'Sleet',
+  'Dust',
+  'Fog',
+  'Haze',
+  'Smoky',
+  'Blustery',
+  'Windy',
+  'Cold',
+  'Cloudy',
+  'Cloudy',
+  'Cloudy',
+  'Cloudy',
+  'Cloudy',
+  'Clear',
+  'Sunny',
+  'Fair',
+  'Fair',
+  'Sleet',
+  'Hot',
+  'Thunderstorms',
+  'Thunderstorms',
+  'Thunderstorms',
+  'Showers',
+  'Heavy Snow',
+  'Light Snow',
+  'Heavy Snow',
+  'Partly Cloudy',
+  'Thunderstorm',
+  'Snow',
+  'Thunderstorm',
+  'blank'
+];
+
 window.addEventListener(
   'load',
   function() {
@@ -53,12 +128,7 @@ function updateClock() {
   document.getElementById('date').innerHTML = currentDate;
   document.getElementById('month').innerHTML = months[currentTime.getMonth()];
 }
-function setTextColor() {
-  document.getElementById('hour').style.color = textColor;
-  document.getElementById('L').style.backgroundColor = textColor;
-}
 function init() {
   updateClock();
-  setInterval('updateClock();', 1000);
-  setTextColor();
+  setInterval('updateClock();', 15000);
 }

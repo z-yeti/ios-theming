@@ -38,7 +38,7 @@
       <span id="slash">/</span>
       <span id="artist">song artist</span>
       <div id="controls-2">
-        <div id="app-cta"></div>
+        <a id="app-cta"></a>
       </div>
     </div>
     <script>
@@ -46,7 +46,6 @@
         if (type == 'music') {
           if (!isplaying) {
             document.getElementById('artwork').style.backgroundImage = 'unset';
-            document.getElementById('container-0').style.display = 'block';
             document.getElementById('container-1').style.display = 'none';
             document.getElementById('container-2').style.display = 'none';
           } else {
